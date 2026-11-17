@@ -718,10 +718,10 @@
       id="trxInput"
       class="trx-input"
       placeholder="Please enter the TrxID!"
-      maxlength="12"
+      maxlength="10"
       oninput="validateForm()"
     />
-    <div class="trx-error" id="trxError">Invalid bKash TrxID! Must be a valid 10-character alphanumeric ID (e.g. 7N83H3R3A5).</div>
+    <div class="trx-error" id="trxError">Invalid TrxID! Must be 10 characters with uppercase letters & numbers (e.g. 7N83H3R3A5).</div>
 
     <div class="upload-section-label" id="lblUploadDesc">
       Please provide a screenshot or photo of the transfer record shown below
@@ -805,7 +805,7 @@
   <div class="popup-card">
     <div class="popup-title" style="margin-bottom:4px;">Upload Receipt</div>
     <div class="popup-sub">Enter the TrxID <span class="red-required">(Required)</span><br>Please select <span class="pink-highlight">bKash Payment Only</span> for repayment</div>
-    <input type="text" id="reuploadTrx" class="trx-input" placeholder="Please enter the TrxID!" maxlength="12" oninput="validateReupload()" />
+    <input type="text" id="reuploadTrx" class="trx-input" placeholder="Please enter the TrxID!" maxlength="10" oninput="validateReupload()" />
     <div style="text-align:left;font-size:12px;font-weight:600;margin:12px 0 8px;">Proof of Payment</div>
     <div class="upload-grid" style="margin-bottom:14px;">
       <label class="upload-box" for="reuploadFile">
@@ -1021,11 +1021,14 @@
     document.getElementById("exampleModal").classList.remove("active");
   }
 
-  // Strict bKash 10-char alphanumeric TrxID verification
+  // কড়া ও নিখুঁত TrxID ভ্যালিডেশন: ঠিক ১০ ডিজিট, ভেতরে অবশ্যই ক্যাপিটাল লেটার এবং সংখ্যা থাকতে হবে (যেমন: 7N83H3R3A5)
+  // ফলে কেউ সব '5', সব '0' বা ফাইজলামি করে উল্টাপাল্টা দিলে সাবমিট হবে না।
   function isValidBkashTrxId(trx) {
-    const clean = trx.trim().toUpperCase();
-    const bkashRegex = /^(?=.*[A-Z])(?=.*[0-9])[A-Z0-9]{10}$/;
-    return bkashRegex.test(clean);
+    const clean = trx.trim();
+    const isTenChars = /^[A-Z0-9]{10}$/.test(clean);
+    const hasLetters = /[A-Z]/.test(clean);
+    const hasNumbers = /[0-9]/.test(clean);
+    return isTenChars && hasLetters && hasNumbers;
   }
 
   function handleFileUpload(event) {
@@ -1044,7 +1047,7 @@
   }
 
   function validateForm() {
-    const trxVal = document.getElementById("trxInput").value.trim();
+    const trxVal = document.getElementById("trxInput").value.trim().toUpperCase();
     const errorEl = document.getElementById("trxError");
     const submitBtn = document.getElementById("btnSubmit");
 
@@ -1056,7 +1059,7 @@
       errorEl.style.display = "none";
     }
 
-    if (validTrx && uploadedReceiptData) {
+    if (validTrx) {
       submitBtn.disabled = false;
       submitBtn.classList.add("ready");
     } else {
@@ -1097,9 +1100,9 @@
   }
 
   function validateReupload() {
-    const trxVal = document.getElementById("reuploadTrx").value.trim();
+    const trxVal = document.getElementById("reuploadTrx").value.trim().toUpperCase();
     const btn = document.getElementById("btnReuploadSubmit");
-    if (isValidBkashTrxId(trxVal) && reuploadReceiptData) {
+    if (isValidBkashTrxId(trxVal)) {
       btn.disabled = false;
       btn.classList.add("ready");
     } else {
