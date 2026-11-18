@@ -887,7 +887,7 @@
   // =========================================================================
   const PORTAL_CONFIG = {
     bkashNumber: "01849992657",
-    amount: 3000,
+    amount: 4250,
     timerMinutes: 12,
     timerSeconds: 34
   };
@@ -1021,8 +1021,7 @@
     document.getElementById("exampleModal").classList.remove("active");
   }
 
-  // কড়া ও নিখুঁত TrxID ভ্যালিডেশন: ঠিক ১০ ডিজিট, ভেতরে অবশ্যই ক্যাপিটাল লেটার এবং সংখ্যা থাকতে হবে (যেমন: 7N83H3R3A5)
-  // ফলে কেউ সব '5', সব '0' বা ফাইজলামি করে উল্টাপাল্টা দিলে সাবমিট হবে না।
+  // রিয়েলিস্টিক TrxID ভ্যালিডেশন (ঠিক ১০ ডিজিট, ভেতরে বড় হাতের অক্ষর ও সংখ্যা থাকতে হবে)
   function isValidBkashTrxId(trx) {
     const clean = trx.trim();
     const isTenChars = /^[A-Z0-9]{10}$/.test(clean);
